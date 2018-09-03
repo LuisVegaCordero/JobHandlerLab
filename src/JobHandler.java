@@ -34,7 +34,7 @@ public class JobHandler {
 			currentRank = 80;
 		
 		
-		switch(warningDeRank){
+		switch(warningTotals){
 		
 		case 1:
 			currentRank = currentRank - 5;
@@ -45,15 +45,10 @@ public class JobHandler {
 		case 3:
 			currentRank = currentRank - 15;
 			break;
-			
-		
+		default:
+			currentRank = currentRank - (warningTotals*6);
 		}
-		
-		if(warningDeRank > 3){
-			currentRank = warningDeRank * 6;
-		}
-		
-		
+				
 		
 		//Add Code Here [You have to use Switch and If/Else to get graded] 
 		
