@@ -1,5 +1,5 @@
 public class JobHandler {
-	
+
 	/**
 	 * A method that returns the rank of an employee.
 	 * A rank is determined by the user's current salary
@@ -23,7 +23,7 @@ public class JobHandler {
 	public static int rank(int warningTotals, double yearlySalary) {
 		int currentRank = 0;
 		int warningDeRank = 0;
-		
+
 		if(yearlySalary < 10000)
 			currentRank = 20;
 		else if(yearlySalary <50000)
@@ -32,10 +32,10 @@ public class JobHandler {
 			currentRank = 60;
 		else
 			currentRank = 80;
-		
-		
+
+
 		switch(warningTotals){
-		
+
 		case 1:
 			currentRank = currentRank - 5;
 			break;
@@ -48,13 +48,13 @@ public class JobHandler {
 		default:
 			currentRank = currentRank - (warningTotals*6);
 		}
-				
-		
+
+
 		//Add Code Here [You have to use Switch and If/Else to get graded] 
-		
+
 		return currentRank - warningDeRank;
 	}
-	
+
 	/**
 	 * A method that helps determine if an employee qualifies for a job.
 	 * To determine if the employee qualifies we need to meet the following requirements:
@@ -76,11 +76,29 @@ public class JobHandler {
 		boolean qualify = false;
 		if(!availability){ return qualify;}
 		if(eRank <= 0) { return qualify;}
-		
-		
-		
+
+		switch(seniority){
+
+		case 1:
+			jobRank = jobRank + 5;
+			break;
+		case 2:
+			jobRank = jobRank + 10;
+			break;
+		case 3:
+			jobRank = jobRank + 20;
+			break;
+
+		}
+		if(eRank >= jobRank)
+			qualify = true;
+
+
+		if(((seniority == 0 || seniority > 3) || eRank < jobRank) && jobType == false){
+			qualify = true;
+		}
 		//Add Code Here [You have to use Switch and If/Else to get graded]
-		
+
 		return qualify; 
 	}
 }
